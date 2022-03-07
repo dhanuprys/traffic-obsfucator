@@ -1,0 +1,24 @@
+{
+  "name": "traffic-obsfucattor",
+  "version": "0.0.1",
+  "description": "HTTP Traffic Obsfucator",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhanuprys/traffic-obsfucator.git"
+  },
+  "keywords": [
+    "http",
+    "https",
+    "obsfucator"
+  ],
+  "author": "Gede Dhanu Purnayasa <dhanuprys@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhanuprys/traffic-obsfucator/issues"
+  },
+  "homepage": "https://github.com/dhanuprys/traffic-obsfucator#readme"
+}
