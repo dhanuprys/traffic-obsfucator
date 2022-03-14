@@ -20,5 +20,18 @@
   "bugs": {
     "url": "https://github.com/dhanuprys/traffic-obsfucator/issues"
   },
-  "homepage": "https://github.com/dhanuprys/traffic-obsfucator#readme"
+  "homepage": "https://github.com/dhanuprys/traffic-obsfucator#readme",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "simple-encryptor": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/body-parser": "^1.19.2",
+    "@types/express": "^4.17.13",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.6.2"
+  }
 }
