@@ -1,6 +1,6 @@
 {
   "name": "traffic-obsfucator",
-  "version": "0.0.1",
+  "version": "0.1.2",
   "description": "HTTP Traffic Obsfucator",
   "main": "build/index.js",
   "scripts": {
