@@ -1,15 +1,19 @@
 import { IStrategy, DataConfig, DataTypes, Metadata } from './strategy/interface';
 
 export default class Obsfucator {
-    private readonly strategy: IStrategy;
-
-    constructor(strategy: IStrategy) {
-        this.strategy = strategy;
+    constructor(private readonly strategy: IStrategy) {
     }
 
-    encode(payload: any): string {
+    /**
+     * 
+     * @param payload Data yang akan di enskripsi
+     * @param expired Waktu hidup data
+     * @returns 
+     */
+    encode(payload: any, expired: number = 1800000): string {
         let type = null;
 
+        // Mendeteksi tipe data yang akan digunakan
         switch (typeof type) {
             case 'string':
                 type = DataTypes.String;
@@ -31,7 +35,7 @@ export default class Obsfucator {
             type,
             signature: '',
             start_date: Date.now(),
-            end_date: Date.now() + (1000*60*30)
+            end_date: Date.now() + expired
         }
 
         return this.strategy.encode(payload, config);
@@ -41,6 +45,7 @@ export default class Obsfucator {
         const decodedResult: Metadata = this.strategy.decode(payload);
         const config = decodedResult.config;
 
+        // Validasi kedaluwarsa data: 30 menit
         if (Date.now() - config.end_date > 0) {
             throw new Error('Payload expired');
         }

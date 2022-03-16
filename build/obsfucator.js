@@ -5,7 +5,7 @@ class Obsfucator {
     constructor(strategy) {
         this.strategy = strategy;
     }
-    encode(payload) {
+    encode(payload, expired = 1800000) {
         let type = null;
         switch (typeof type) {
             case 'string':
@@ -27,7 +27,7 @@ class Obsfucator {
             type,
             signature: '',
             start_date: Date.now(),
-            end_date: Date.now() + (1000 * 60 * 30)
+            end_date: Date.now() + expired
         };
         return this.strategy.encode(payload, config);
     }

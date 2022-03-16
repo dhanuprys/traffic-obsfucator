@@ -6,6 +6,9 @@ export enum DataTypes {
     Boolean,
 }
 
+/**
+ * Konfigurasi yang akan dibawa pada setiap traffic
+ */
 export type DataConfig = {
     type: DataTypes,
     signature?: string,
@@ -13,11 +16,17 @@ export type DataConfig = {
     end_date: number
 }
 
+/**
+ * Tipe data vital yang akan dibaca oleh program
+ */
 export type Metadata = {
     payload: any,
     config: DataConfig
 }
 
+/**
+ * Digunakan untuk mengikat data sesuai dengan standar program
+ */
 export function wrapResult(
     payload: Metadata['payload'],
     config: Metadata['config']
@@ -29,6 +38,19 @@ export function wrapResult(
 }
 
 export interface IStrategy {
+    /**
+     * Melakukan enskripsi data dengan proses yang berbeda-beda tergantung dengan
+     * instansinya
+     * 
+     * @param payload 
+     * @param config 
+     */
     encode(payload: Metadata['payload'], config: Metadata['config']): string;
+
+    /**
+     * Melakukan deskripsi data dengan proses yang berbeda-beda tergantung dengan
+     * instansinya
+     * @param payload 
+     */
     decode<T>(payload: string): T;
 }
